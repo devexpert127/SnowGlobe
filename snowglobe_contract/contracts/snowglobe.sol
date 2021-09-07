@@ -1,12 +1,12 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
-import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
-import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Burnable.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/utils/math/SafeMath.sol";
-import "@openzeppelin/contracts/utils/Counters.sol";
+import "./ERC721.sol";
+import "./ERC721Enumerable.sol";
+import "./ERC721Burnable.sol";
+import "./Ownable.sol";
+import "./SafeMath.sol";
+import "./Counters.sol";
 
 contract SnowGlobe is ERC721Enumerable, Ownable, ERC721Burnable {
     using SafeMath for uint256;
@@ -17,8 +17,8 @@ contract SnowGlobe is ERC721Enumerable, Ownable, ERC721Burnable {
     uint256 public constant MAX_ELEMENTS = 10000;
     uint256 public constant PRICE = 4 * 10**16;
     uint256 public constant MAX_BY_MINT = 5;
-    address public constant creatorAddress = 0x6aDD24eb2BcA5696B0a9d10425f8A58F0d73Fc28;
-    address public constant devAddress = 0xcBCc84766F2950CF867f42D766c43fB2D2Ba3256;
+    address public constant creatorAddress = 0x101c53F64Fe67ff8D88c52bD48080CaF1F43aB41;
+    address public constant devAddress = 0x101c53F64Fe67ff8D88c52bD48080CaF1F43aB41;
     string public baseTokenURI;
     bool private _pause;
 

@@ -5,8 +5,8 @@ const { API_URL, MNEMONIC } = process.env;
 module.exports = {
   networks: {
     development: {
-      host: "127.0.0.1",
-      port: 7545,
+      host: "localhost",
+      port: 8545,
       network_id: "*"
     },
     ropsten: {
@@ -14,12 +14,22 @@ module.exports = {
         return new HDWalletProvider(MNEMONIC, API_URL)
       },
       network_id: 3,
-      gas: 4000000 //4M is the max
+//      gas: 1000000 //4M is the max
     }
   },
   compilers: {
     solc: {
-      version: "^0.8.0"
+      version: "^0.8.0",
+      settings: {
+        optimizer: {
+          enabled: true, // Default: false
+          runs: 200      // Default: 200
+        },
+      }
     }
+  },
+  plugins: ['truffle-plugin-verify'], //PLUGIN ADDED HERE
+  api_keys: {
+    etherscan: process.env.ETHERSCAN_API_KEY
   }
 };
