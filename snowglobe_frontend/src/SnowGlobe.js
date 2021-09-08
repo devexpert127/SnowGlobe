@@ -14,7 +14,7 @@ const SnowGlobe = () => {
         <div id="app" data-v-app="">
          <div id="project">
             <div id="home" className="">
-               <SnowHeader/>
+               {/* <SnowHeader/> */}
                <SnowMint/>
                <SnowBody/>
                <SnowFooter/>

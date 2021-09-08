@@ -6,9 +6,9 @@ const SnowFooter = () => {
       <div className="wrapper">
         <div className="left">
           <div className="logo"></div>
-          <h2>Snow Globe</h2>
+          <h2>Snow Globes</h2>
         </div>
-        <a href="https://ropsten.etherscan.io/address/0x5432d6e992e81dcb3b605810a136ba13e7ea152c#code" alt="Etherscan Link">Our Smart Contract</a>
+        <a href=" https://ropsten.etherscan.io/address/0x03F111c6f4A88773e1AD80CF1F06366d32FE8A2b#code" alt="Etherscan Link">Our Smart Contract</a>
         <div className="social">
           <a href="http://twitter.com/snowglobenft" target="_blank">
             <img src="./assets/footer-twitter.svg" alt=""/>

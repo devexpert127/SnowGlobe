@@ -14,16 +14,16 @@ contract SnowGlobe is ERC721Enumerable, Ownable, ERC721Burnable {
 
     Counters.Counter private _tokenIdTracker;
 
-    uint256 public constant MAX_ELEMENTS = 10000;
-    uint256 public constant PRICE = 4 * 10**16;
-    uint256 public constant MAX_BY_MINT = 5;
+    uint256 public constant MAX_ELEMENTS = 7840;
+    uint256 public constant PRICE = 9 * 10**16;
+    uint256 public constant MAX_BY_MINT = 15;
     address public constant creatorAddress = 0x101c53F64Fe67ff8D88c52bD48080CaF1F43aB41;
     address public constant devAddress = 0x101c53F64Fe67ff8D88c52bD48080CaF1F43aB41;
     string public baseTokenURI;
     bool private _pause;
 
     event JoinGang(uint256 indexed id);
-    constructor(string memory baseURI) ERC721("SnowGlobe", "SG") {
+    constructor(string memory baseURI) ERC721("SNOW", "SG") {
         setBaseURI(baseURI);
         pause(true);
     }

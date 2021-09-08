@@ -85,9 +85,15 @@ a {
 
 #walletButton {
     float: right;
-    margin-top: 0px;
+    margin-top: 10px;
+    margin-right: 10px;
     font-family: cursive;
     padding: 5px 20px 6px 20px;
+}
+
+#connect-btn {
+    right: 0px;
+    position: absolute;
 }
 
 @import url(https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap);
@@ -305,10 +311,12 @@ a:hover {
     height: 78px
 }
 
-#mint {
+.mint-block {
     background: url(./cover.jpg) 50% no-repeat;
     background-size: cover;
-    margin: 125px 0 0;
+}
+
+#mint {
     padding: 100px 0;
     min-height: 40vh;
     max-height: 800px;
