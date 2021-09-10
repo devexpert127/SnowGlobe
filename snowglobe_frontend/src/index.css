@@ -406,6 +406,7 @@ a:hover {
 }
 
 #about h2:after {
+
     z-index: -1;
     position: absolute;
     background: url(./assets/sketch_stars.gif) no-repeat;
@@ -415,7 +416,7 @@ a:hover {
     width: 103px;
     height: 97px;
     top: -50px;
-    right: 11%
+    right: -12%
 }
 
 #gallery {
