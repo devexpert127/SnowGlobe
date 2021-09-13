@@ -9,11 +9,11 @@ module.exports = {
       port: 8545,
       network_id: "*"
     },
-    ropsten: {
+    rinkeby: {
       provider: function() {
         return new HDWalletProvider(MNEMONIC, API_URL)
       },
-      network_id: 3,
+      network_id: 4,
 //      gas: 1000000 //4M is the max
     }
   },

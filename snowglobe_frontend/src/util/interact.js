@@ -3,6 +3,7 @@ const alchemyKey = process.env.REACT_APP_ALCHEMY_KEY;
 const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
 const web3 = createAlchemyWeb3(alchemyKey);
 
+
 const contractABI = require("../contract-abi.json");
 const contractAddress = "0x5432d6e992e81dcb3b605810a136ba13e7ea152c";
 
@@ -125,7 +126,7 @@ export const updateMessage = async (address, message) => {
       status: (
         <span>
           ✅{" "}
-          <a target="_blank" href={`https://ropsten.etherscan.io/tx/${txHash}`}>
+          <a target="_blank" href={`https://linkeby.etherscan.io/tx/${txHash}`}>
             View the status of your transaction on Etherscan!
           </a>
           <br />
