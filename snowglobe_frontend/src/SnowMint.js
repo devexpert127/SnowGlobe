@@ -47,11 +47,10 @@ const SnowMint = () => {
   
   
     const getTimeRemaining = (e) => {
-      console.log(e);
         const total = Date.parse(e) - Date.parse(new Date());
         const seconds = Math.floor((total / 1000) % 60);
         const minutes = Math.floor((total / 1000 / 60) % 60);
-        const hours = Math.floor((total / 1000 * 60 * 60) % 24);
+        const hours = Math.floor((total / 1000 / 60 / 60) % 24);
         const days = Math.floor(total / (1000 * 60 * 60 * 24));
         return {
             total, days, hours, minutes, seconds
@@ -60,8 +59,7 @@ const SnowMint = () => {
   
   
     const startTimer = (e) => {
-        let { total, days, hours, minutes, seconds } 
-                    = getTimeRemaining(e);
+        let { total, days, hours, minutes, seconds } = getTimeRemaining(e);
         setRemainTime(total);
         if (total >= 0) {
             setTimer(
@@ -107,6 +105,7 @@ const SnowMint = () => {
 
     addWalletListener();
     clearTimer(getDeadTime());
+    setRemainTime(100);
 
   }, []);
 

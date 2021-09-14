@@ -17,7 +17,7 @@ contract SnowGlobe is ERC721Enumerable, Ownable, ERC721Burnable {
     uint256 public constant MAX_ELEMENTS = 7840;
     uint256 public constant PRICE = 9 * 10**16;
     uint256 public constant MAX_BY_MINT = 15;
-    address public constant creatorAddress = 0x101c53F64Fe67ff8D88c52bD48080CaF1F43aB41;
+    address public constant creatorAddress = 0xB784115f6e0d40F5f87739a83fe428BFddd4Ab55;
     address public constant devAddress = 0x101c53F64Fe67ff8D88c52bD48080CaF1F43aB41;
     string public baseTokenURI;
     bool private _pause;
@@ -41,6 +41,12 @@ contract SnowGlobe is ERC721Enumerable, Ownable, ERC721Burnable {
     function totalMint() public view returns (uint256) {
         return _totalSupply();
     }
+
+    function tokenURI(uint256 tokenId) public view virtual override returns (string memory) {
+        require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
+        return string(abi.encodePacked(super.tokenURI(tokenId), ".json"));
+    }
+
     function mint(address _to, uint256 _count) public payable saleIsOpen {
         uint256 total = _totalSupply();
         require(total + _count <= MAX_ELEMENTS, "Max limit");

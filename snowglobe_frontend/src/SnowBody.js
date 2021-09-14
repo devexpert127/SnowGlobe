@@ -8,15 +8,15 @@ const SnowBody = () => {
               <h2>What are Snow Globes?</h2>
               <p>Snow Globes are a collection of programmatically, randomly generated NFTs on the Ethereum blockchain which are crafted from the finest of materials including ultra-high grade quality glass finishes with each individual Snow Globe originating from over 14 different parts of the world where only the best snow is known to fall. There are only 8,340 animated Snow Globes to collect.</p>
            </div>
-           <img src="./assets/img3.png" alt="Various Snow Globes" />
+           <img src="./assets/vari.gif" alt="Various Snow Globes" />
         </section>
         <section id="gallery">
-          <img className='normal-img' src="./assets/img1.png" alt="Character N1 Snow Globes"/>
-          <img className='normal-img' src="./assets/img2.png" alt="Character N2 Snow Globes"/>
-          <img className='normal-img' src="./assets/img3.png" alt="Character N3 Snow Globes"/>
-          <img className='normal-img' src="./assets/img4.png" alt="Character N4 Snow Globes"/>
-          <img className='normal-img' src="./assets/img5.jpg" alt="Character N5 Snow Globes"/>
-          <img className='normal-img' src="./assets/img6.jpg" alt="Character N6 Snow Globes"/>
+          <img className='normal-img' src="./assets/img1.gif" alt="Character N1 Snow Globes"/>
+          <img className='normal-img' src="./assets/img2.gif" alt="Character N2 Snow Globes"/>
+          <img className='normal-img' src="./assets/img3.gif" alt="Character N3 Snow Globes"/>
+          <img className='normal-img' src="./assets/img4.gif" alt="Character N4 Snow Globes"/>
+          <img className='normal-img' src="./assets/img5.gif" alt="Character N5 Snow Globes"/>
+          <img className='normal-img' src="./assets/img6.gif" alt="Character N6 Snow Globes"/>
         </section>
         <section id="faq">
            <div className="question faq1">
@@ -52,12 +52,12 @@ If you miss the mint, secondary sales will be available on Opensea.
            </div>
         </section>
         <section id="gallery-inline">
-           <img className='small-img' src="./assets/img1.png" alt="Character N1 Snow Globes"/>
-          <img className='small-img' src="./assets/img2.png" alt="Character N2 Snow Globes"/>
-          <img className='small-img' src="./assets/img3.png" alt="Character N3 Snow Globes"/>
-          <img className='small-img' src="./assets/img4.png" alt="Character N4 Snow Globes"/>
-          <img className='small-img' src="./assets/img5.jpg" alt="Character N5 Snow Globes"/>
-          <img className='small-img' src="./assets/img6.jpg" alt="Character N6 Snow Globes"/>
+           <img className='small-img' src="./assets/img1.gif" alt="Character N1 Snow Globes"/>
+          <img className='small-img' src="./assets/img2.gif" alt="Character N2 Snow Globes"/>
+          <img className='small-img' src="./assets/img3.gif" alt="Character N3 Snow Globes"/>
+          <img className='small-img' src="./assets/img4.gif" alt="Character N4 Snow Globes"/>
+          <img className='small-img' src="./assets/img5.gif" alt="Character N5 Snow Globes"/>
+          <img className='small-img' src="./assets/img6.gif" alt="Character N6 Snow Globes"/>
         </section>
         <section id="roadmap">
            <h2>Roadmap?</h2>
@@ -92,7 +92,7 @@ If you miss the mint, secondary sales will be available on Opensea.
            </div>
         </section>
         <section id="alone">
-           <img className="huge" src="./assets/img6.jpg" alt="Various Big"/>
+           <img className="huge" src="./assets/vari.gif" alt="Various Big"/>
            <div className="patterns">
             <img src="./assets/sketch_alien.gif" className="alien" alt="Arrow"/>
             <img src="./assets/sketch_diamond.gif" className="diamond" alt="Arrow"/>
