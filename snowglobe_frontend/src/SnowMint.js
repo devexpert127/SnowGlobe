@@ -1,10 +1,11 @@
 import React from "react";
 import { useEffect, useRef, useState } from "react";
+import { Button } from 'react-bootstrap';
 import {
-  helloWorldContract,
+  snowGlobeContract,
   connectWallet,
   updateMessage,
-  loadCurrentMessage,
+  mintSnowGlobe,
   getCurrentWalletConnected,
 } from "./util/interact.js";
 
@@ -20,7 +21,7 @@ const web3 = createAlchemyWeb3(REACT_APP_ALCHEMY_KEY);
 
 const contract = require("./abi.json");
 
-const contractAddress = "0xEfb80e4A75338d6606B2C5ac085d6F8FE9316598";
+const contractAddress = "0x5E100f46511A49Ee495613d55fb00Fed6f444773";
 const nftContract = new web3.eth.Contract(contract, contractAddress);
 
 
@@ -35,6 +36,7 @@ const SnowMint = () => {
   const [newMessage, setNewMessage] = useState("");
   const [totalCount, setTotalCount] = useState("");
   const [remainTime, setRemainTime] = useState(0);
+	const [mintCount, setMintCount] = useState(1);
 
   
     // We need ref in this, because we are dealing
@@ -61,6 +63,10 @@ const SnowMint = () => {
     const startTimer = (e) => {
         let { total, days, hours, minutes, seconds } = getTimeRemaining(e);
         setRemainTime(total);
+        nftContract.methods.totalMint().call().then(function (value) {
+          setTotalCount(value);
+        });
+    
         if (total >= 0) {
             setTimer(
                 days + 'days ' +
@@ -99,18 +105,15 @@ const SnowMint = () => {
     setWallet(address);
     setStatus(status);
     setTotalCount(0);
-    nftContract.methods.totalMint().call().then(function (value) {
-      setTotalCount(value);
-    });
 
     addWalletListener();
     clearTimer(getDeadTime());
     setRemainTime(100);
-
+    setMintCount(1);
   }, []);
 
   function addSmartContractListener() {
-    helloWorldContract.events.UpdatedMessages({}, (error, data) => {
+    snowGlobeContract.events.UpdatedMessages({}, (error, data) => {
       if (error) {
         setStatus("😥 " + error.message);
       } else {
@@ -157,30 +160,58 @@ const SnowMint = () => {
     setStatus(status);
   };
 
+  const onMintPressed = async() => {
+    if (walletAddress == '') {
+      alert('Please connect to metamask first!');
+    } else {
+		  await mintSnowGlobe(walletAddress, mintCount);
+    }
+	}
+
   function renderMintUI() {
-    return remainTime > 0 ? 
+    return remainTime < 0 ? 
     <div>
       <h1 style={{marginTop:100 + 'px'}}>Countdown to Launch...</h1>
       <h1 style={{marginBottom:100 + 'px',marginTop:100 + 'px'}}>{timer}</h1>
 
     </div>
-        : 
+        : (totalCount < 7840 ? 
+          <div>
+          <div className="numberminted">
+            <div className="number">{totalCount}/7,840</div>
+            <div className="text">Snow Globe minted</div>
+          </div>
+          <div className="settings soldout">
+              <select  onChange={e => setMintCount(e.target.value)}>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="1">6</option>
+                <option value="2">7</option>
+                <option value="3">8</option>
+                <option value="4">9</option>
+                <option value="5">10</option>
+                <option value="1">11</option>
+                <option value="2">12</option>
+                <option value="3">13</option>
+                <option value="4">14</option>
+                <option value="5">15</option>
+              </select>
+              <Button variant="primary" className="cta soldout" onClick={onMintPressed}>MINT</Button>
+            </div>
+        </div>
+          : 
         <div>
-<div className="numberminted">
-        <div className="number">{totalCount}/7,840</div>
-        <div className="text">Snow Globe minted</div>
-     </div>
-<div className="settings soldout">
-                      <select>
-                         <option value="1">1</option>
-                         <option value="2">2</option>
-                         <option value="3">3</option>
-                         <option value="4">4</option>
-                         <option value="5">5</option>
-                      </select>
-                      <a href="https://opensea.io/collection/snowglobenft" className="cta soldout" style={{ textDecoration: "none"}}>View on Opensea</a>
-                   </div>
-          </div>;
+          <div className="numberminted">
+            <div className="number">{totalCount}/7,840</div>
+            <div className="text">Snow Globe minted</div>
+          </div>
+          <div className="settings soldout">
+            <a href="https://opensea.io/collection/snowglobenft" className="cta soldout" style={{ textDecoration: "none"}}>View on Opensea</a>
+          </div>
+        </div>);
 }
 
         return (

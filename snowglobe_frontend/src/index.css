@@ -351,7 +351,7 @@ a:hover {
 }
 
 #mint .soldout select {
-    display: none
+    /* display: none */
 }
 
 #mint select {
@@ -1330,6 +1330,15 @@ sup {
 .soldout.connect,
 .soldout.disconnect {
     color: #000
+}
+
+.btn.cta.soldout {
+    margin-left: 20px;
+    font-weight: bold;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: rgb(11, 65, 62);
+    width: 150px;
 }
 
 .alert {

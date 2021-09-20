@@ -5,15 +5,15 @@ const web3 = createAlchemyWeb3(alchemyKey);
 
 
 const contractABI = require("../contract-abi.json");
-const contractAddress = "0x5432d6e992e81dcb3b605810a136ba13e7ea152c";
+const contractAddress = "0x5E100f46511A49Ee495613d55fb00Fed6f444773";
 
-export const helloWorldContract = new web3.eth.Contract(
+export const snowGlobeContract = new web3.eth.Contract(
   contractABI,
   contractAddress
 );
 
 export const loadCurrentMessage = async () => {
-  const message = await helloWorldContract.methods.message().call();
+  const message = await snowGlobeContract.methods.message().call();
   return message;
 };
 
@@ -113,7 +113,7 @@ export const updateMessage = async (address, message) => {
   const transactionParameters = {
     to: contractAddress, // Required except during contract publications.
     from: address, // must match user's active address.
-    data: helloWorldContract.methods.update(message).encodeABI(),
+    data: snowGlobeContract.methods.update(message).encodeABI(),
   };
 
   //sign the transaction
@@ -141,3 +141,49 @@ export const updateMessage = async (address, message) => {
     };
   }
 };
+
+export const mintSnowGlobe = async (address, mintCount) => {
+  if (!window.ethereum || address === null) {
+    return {
+      status:
+        "💡 Connect your Metamask wallet to update the message on the blockchain.",
+    };
+  }
+  //set up transaction parameters
+  console.log(mintCount);
+  const transactionParameters = {
+    to: contractAddress, // Required except during contract publications.
+    from: address, // must match user's active address.
+    value: web3.utils.toHex(web3.utils.toBN(`${90000000000000000*mintCount}`)),
+    // value: web3.utils.toHex(web3.utils.toBN(`${90000000000000000*mintCount}`)),
+    data: snowGlobeContract.methods
+      .mint(address, mintCount)
+      .encodeABI(),
+  };
+
+  try {
+    const txHash = await window.ethereum.request({
+      method: "eth_sendTransaction",
+      params: [transactionParameters],
+    });
+
+    return {
+      status: (
+        <span>
+          ✅{" "}
+          <a  rel="noreferrer"  target="_blank" href={`https://rinkeby.etherscan.io/tx/${txHash}`}>
+            View the status of your transaction on Etherscan!
+          </a>
+          <br />
+          ℹ️ Once the transaction is verified by the network, the message will
+          be updated automatically.
+        </span>
+      ),
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      status: "😥 " + error.message,
+    };
+  }  
+}

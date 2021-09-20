@@ -1,5 +1,6 @@
 {
   "name": "hello-world-part-four",
+  "homepage": "https://snowglobe.io/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -12,6 +13,7 @@
     "react-countdown": "^2.3.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
+    "react-bootstrap": "^2.0.0-beta.6",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
