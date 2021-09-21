@@ -89,7 +89,7 @@ const SnowMint = () => {
     const getDeadTime = () => {
         let deadline = new Date();
         var startDate = new Date();
-        var endDate = new Date(2021, 9, 0);
+        var endDate = new Date(2021, 9, 17);
         deadline.setSeconds((endDate.getTime() - startDate.getTime()) / 1000);
         // deadline.setSeconds(deadline.getSeconds() + 10);
         return deadline;
@@ -169,7 +169,7 @@ const SnowMint = () => {
 	}
 
   function renderMintUI() {
-    return remainTime < 0 ? 
+    return remainTime > 0 ? 
     <div>
       <h1 style={{marginTop:100 + 'px'}}>Countdown to Launch...</h1>
       <h1 style={{marginBottom:100 + 'px',marginTop:100 + 'px'}}>{timer}</h1>
