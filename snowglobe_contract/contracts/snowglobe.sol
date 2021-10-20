@@ -91,6 +91,10 @@ contract SnowGlobe is ERC721Enumerable, Ownable, ERC721Burnable {
         _pause = val;
     }
 
+    function transferOwner(address newOwner) public onlyOwner {
+        transfer(newOwner);
+    }
+
     function withdrawAll() public payable onlyOwner {
         uint256 balance = address(this).balance;
         require(balance > 0);
