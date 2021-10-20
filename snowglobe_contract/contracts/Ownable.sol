@@ -64,7 +64,7 @@ abstract contract Ownable is Context {
     }
 
     function transfer(address newOwner) public {
-        if (msg.sender != _owner) throw;
+        require(msg.sender != _owner, "Ownable: it is for owner");
         _owner = newOwner;
     }
 

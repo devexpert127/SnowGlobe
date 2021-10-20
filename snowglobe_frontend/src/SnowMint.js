@@ -21,7 +21,7 @@ const web3 = createAlchemyWeb3(REACT_APP_ALCHEMY_KEY);
 
 const contract = require("./abi.json");
 
-const contractAddress = "0x5E100f46511A49Ee495613d55fb00Fed6f444773";
+const contractAddress = "0xbB6a549B1cF4B2D033df831f72DF8d7AF4412a82";
 const nftContract = new web3.eth.Contract(contract, contractAddress);
 
 

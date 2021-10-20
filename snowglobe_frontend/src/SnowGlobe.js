@@ -6,8 +6,6 @@ import SnowFooter from "./SnowFooter.js";
 import SnowBody from "./SnowBody.js";
 
 const SnowGlobe = () => {
-  
-
   //the UI of our component
   return (
     <div id="container">

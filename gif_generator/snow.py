@@ -20,14 +20,14 @@ colorstr = ['White', 'Pink', 'Gold', 'Christmas']
 # colorstr = ['Christmas']
 
 jsonlist = [
-    'QmeMJZTzX3n2G8CP5SZFhECfqTnku2MWVEjUB3KqojqU3P',
-    'QmXtABDJybXXSRbaSBqtw6VUJ7pHTz9FBarhbVAZGchkDM',
-    'QmZwzQHirTKjtb6Ye7gqGAStGViuF5XQY1pQZXDmA7AvMt',
-    'QmSE3TF3xyiHinnwBz5qkg8H3ZXVtn7crmV9MnVDwGW3Z4',
-    'QmYYma9oxDEz8phU2dUfhzq47Bu3DXSPxgkR8Aj3YUhJAg',
-    'QmUCmBXxAf1W1yCGXLeiW3AKmkJdm8vhQxCpJXG7ud2SRe',
+    'QmWEyqnk8ceiYt9NUFm17PEhTdRjr2BHifB4ueWHmWuEP4',
     'QmV4PRN2CHVwe5eq5BbdwuSFbcV3zAjzuw3y6AifCYwbqm',
-    'QmWEyqnk8ceiYt9NUFm17PEhTdRjr2BHifB4ueWHmWuEP4'
+    'QmUCmBXxAf1W1yCGXLeiW3AKmkJdm8vhQxCpJXG7ud2SRe',
+    'QmYYma9oxDEz8phU2dUfhzq47Bu3DXSPxgkR8Aj3YUhJAg',
+    'QmSE3TF3xyiHinnwBz5qkg8H3ZXVtn7crmV9MnVDwGW3Z4',
+    'QmZwzQHirTKjtb6Ye7gqGAStGViuF5XQY1pQZXDmA7AvMt',
+    'QmXtABDJybXXSRbaSBqtw6VUJ7pHTz9FBarhbVAZGchkDM',
+    'QmeMJZTzX3n2G8CP5SZFhECfqTnku2MWVEjUB3KqojqU3P',
 ]
 
 SIZE = [600, 400]
@@ -55,6 +55,12 @@ clock = pygame.time.Clock()
 done = False
 
 gifcnt = 1
+jsonfilename = []
+for i in range(1, 7841):
+    jsonfilename.append(i)
+
+random.shuffle(jsonfilename)
+print(jsonfilename)
 
 backgrounds = glob.glob("./gif_generator/Background/*.png")
 themes = glob.glob("./gif_generator/theme/*.png")
@@ -153,7 +159,7 @@ for geolocation in geolocations:
 
                     dictionary ={
                         "id":1,
-                        "name":f"SnowGlobeNFT #{gifcnt}",
+                        "name":f"SnowGlobeNFT #{jsonfilename[gifcnt - 1]}",
                         "image":"https://snowglobes.mypinata.cloud/ipfs/" + jsonlist[math.floor((gifcnt - 1) / 1000)] + f"/{gifcnt}.gif",
                         "description":"My SnowGlobe Collection Descriptions",
                         "attributes":[
@@ -184,7 +190,7 @@ for geolocation in geolocations:
                     json_object = json.dumps(dictionary, indent = 4)
                     
                     # Writing to sample.json
-                    with open(f"jsons/{gifcnt}.json", "w") as outfile:
+                    with open(f"jsons/{jsonfilename[gifcnt - 1]}.json", "w") as outfile:
                         outfile.write(json_object)
 
                     gifcnt = gifcnt + 1

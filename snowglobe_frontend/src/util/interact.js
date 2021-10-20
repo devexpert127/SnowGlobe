@@ -5,7 +5,7 @@ const web3 = createAlchemyWeb3(alchemyKey);
 
 
 const contractABI = require("../contract-abi.json");
-const contractAddress = "0x5E100f46511A49Ee495613d55fb00Fed6f444773";
+const contractAddress = "0xbB6a549B1cF4B2D033df831f72DF8d7AF4412a82";
 
 export const snowGlobeContract = new web3.eth.Contract(
   contractABI,
